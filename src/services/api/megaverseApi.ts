@@ -11,8 +11,8 @@ interface PostEntityParams {
     row: number;
     col: number;
     entity: string;
-    color?: string; // Optional color for SOLOONs
-    direction?: string; // Optional direction for COMETHs
+    color?: string; 
+    direction?: string; 
 }
 
 interface PostEntityParams {

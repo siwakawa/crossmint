@@ -3,15 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #101928;
+  --foreground: #ededed;
 }
 
 body {
@@ -24,22 +17,4 @@ body {
   .text-balance {
     text-wrap: balance;
   }
-}
-
-
-/* globals.css */
-.rotate-48 {
-  @apply rotate-[48deg];
-}
-
-.rotate-230 {
-  @apply rotate-[230deg];
-}
-
-.rotate-330 {
-  @apply rotate-[330deg];
-}
-
-.rotate-140 {
-  @apply rotate-[140deg];
 }
