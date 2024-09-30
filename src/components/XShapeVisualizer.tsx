@@ -1,22 +1,22 @@
-// src/components/XShapeVisualizer.tsx
+import { getEntityInfo, getTransformationClassesAndStyles, getEmoji } from '../services/entityService';
 
-interface XShapeVisualizerProps {
-    mapData: string[][]; // Recibe la matriz de datos del mapa
-}
-
-export default function XShapeVisualizer({ mapData }: XShapeVisualizerProps) {
-    console.log(mapData);
-    return (
-        <div className="mt-4 text-2xl">
-            {mapData.map((row, rowIndex) => (
-                <div key={rowIndex} className="flex">
-                    {row.map((cell, colIndex) => (
-                        <span key={`${rowIndex}-${colIndex}`} className="w-6 h-6 flex items-center justify-center">
-                            {cell === "POLYANET" ? '🪐' : '🌌'} {/* Polyanet or Space */}
-                        </span>
-                    ))}
-                </div>
-            ))}
+export default function XShapeVisualizer({ mapData }: { mapData: string[][] }) {
+  return (
+    <div className="mt-4 text-2xl">
+      {mapData.map((row, rowIndex) => (
+        <div key={rowIndex} className="flex">
+          {row.map((cell, colIndex) => {
+            const entityInfo = getEntityInfo(cell); // Get entity and transformations
+            const { className, style } = getTransformationClassesAndStyles(entityInfo.transformations || []); // Get classes and styles
+            const emoji = getEmoji(entityInfo.entity); // Get the emoji
+            return (
+              <span key={`${rowIndex}-${colIndex}`} className={`${className} m-1`} style={style}>
+                {emoji}
+              </span>
+            );
+          })}
         </div>
-    );
+      ))}
+    </div>
+  );
 }

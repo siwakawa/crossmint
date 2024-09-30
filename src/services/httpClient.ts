@@ -1,5 +1,3 @@
-// src/services/httpClient.ts
-
 import axios from 'axios';
 
 // Interface for the HTTP client to abstract away the implementation
